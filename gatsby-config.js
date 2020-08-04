@@ -1,6 +1,18 @@
 const urljoin = require("url-join");
 const siteConfig = require("./siteConfig");
 
+const contentTypes = ["blog", "product", "pages", "categories", "assets"];
+const filesystemSetup = [];
+contentTypes.map(slug => {
+  filesystemSetup.push({
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      path: `${__dirname}/content/${slug}`,
+      name: slug
+    }
+  });
+});
+
 module.exports = {
   siteMetadata: {
     title: siteConfig.name,
@@ -12,20 +24,7 @@ module.exports = {
     }
   },
   plugins: [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`
-      }
-    },
+    ...filesystemSetup,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
