@@ -25,6 +25,7 @@ module.exports = {
   },
   plugins: [
     ...filesystemSetup,
+    `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {

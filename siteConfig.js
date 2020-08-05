@@ -1,9 +1,9 @@
 module.exports = {
-  name: 'London Night and Day',
-  shortName: '',
-  description: 'A bold, minimal theme for Gatsby, focused on clean typography & beautiful imagery',
-  url: 'https://www.jooplaan.com', // Domain of your site without prefix!
-  prefix: '/',
-  author: 'jooplaan',
-  twitter: ''
-}
+  name: "Regalos Veganos",
+  shortName: "Regalos para veganos",
+  description: "Tienda online donde encontrar regalos para veganos",
+  url: "https://www.regalosveganos.com",
+  prefix: "/",
+  author: "Pablo Cianes",
+  twitter: "@PabloCianes"
+};

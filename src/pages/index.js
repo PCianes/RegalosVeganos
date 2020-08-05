@@ -1,36 +1,44 @@
-import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import React from "react";
+import { graphql } from "gatsby";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-// import Bio from "../components/bio"
-import PostCard from "../components/postCard"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import PostCard from "../components/postCard";
 
-import "../style/normalize.css"
-import "../style/all.scss"
-//TODO: switch to staticQuery, get rid of comments, remove unnecessary components, export as draft template
-const BlogIndex = ({ data }, location) => {
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
-  let postCounter = 0
+import "../style/normalize.css";
+import "../style/all.scss";
 
+const Index = ({ data }) => {
+  const { site, blog } = data;
+  const siteTitle = site.siteMetadata.title;
+  const posts = blog.edges;
+  const { title, intro } = data.home.fields.html;
+  let postCounter = 0;
   return (
     <Layout title={siteTitle}>
       <SEO
-        title="Blog"
-        keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
+        lang="es"
+        title="Regalos Veganos"
+        keywords={[
+          `veganos`,
+          `regalos veganos`,
+          `veganismo`,
+          `vegan`,
+          `tienda veganos`
+        ]}
       />
-      {/* <Bio /> */}
-      {data.site.siteMetadata.description && (
-        <header className="page-head">
-          <h2 className="page-head-title">
-            {data.site.siteMetadata.description}
-          </h2>
-        </header>
-      )}
+
+      <header className="page-head">
+        <h2 className="page-head-title">{title}</h2>
+        <div
+          className="post-content-body"
+          dangerouslySetInnerHTML={{ __html: intro }}
+        />
+      </header>
+
       <div className="post-feed">
         {posts.map(({ node }) => {
-          postCounter++
+          postCounter++;
           return (
             <PostCard
               key={node.fields.slug}
@@ -38,22 +46,45 @@ const BlogIndex = ({ data }, location) => {
               node={node}
               postClass={`post`}
             />
-          )
+          );
         })}
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-const indexQuery = graphql`
-  query {
+export const query = graphql`
+  {
     site {
       siteMetadata {
         title
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    home: pagesYaml(
+      fields: { collection: { eq: "pages" }, filename: { eq: "home" } }
+    ) {
+      fields {
+        html {
+          title
+          intro
+          section {
+            name
+            intro
+            category {
+              categoryRelation
+              image
+              intro
+            }
+          }
+        }
+      }
+    }
+    blog: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { collection: { eq: "blog" } } }
+      limit: 5
+    ) {
       edges {
         node {
           excerpt
@@ -77,13 +108,6 @@ const indexQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default props => (
-  <StaticQuery
-    query={indexQuery}
-    render={data => (
-      <BlogIndex location={props.location} props data={data} {...props} />
-    )}
-  />
-)
+export default Index;
