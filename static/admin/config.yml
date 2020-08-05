@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: master
 
-media_folder: static/img
+media_folder: content/img
 public_folder: /img
 
 logo_url: /login.svg
@@ -112,6 +112,7 @@ collections:
                     name: "category-relation"
                     widget: "relation"
                     collection: "category"
+                    displayFields: ["title"]
                     searchFields: ["title"]
                     valueField: "{{slug}}"
                   - { label: "Image", name: "image", widget: "image" }

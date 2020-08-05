@@ -116,7 +116,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
           intro: section.intro ? toHTML(section.intro) : "",
           category: section.category.map(category => {
             return {
-              categoryRelation: category["category-relation"],
+              link: category["category-relation"].substring(
+                0,
+                category["category-relation"].lastIndexOf("/index")
+              ),
               image: category.image,
               intro: toHTML(category.intro)
             };

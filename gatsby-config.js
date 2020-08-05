@@ -1,7 +1,14 @@
 const urljoin = require("url-join");
 const siteConfig = require("./siteConfig");
 
-const contentTypes = ["blog", "product", "pages", "categories", "assets"];
+const contentTypes = [
+  "blog",
+  "product",
+  "pages",
+  "categories",
+  "assets",
+  "img"
+];
 const filesystemSetup = [];
 contentTypes.map(slug => {
   filesystemSetup.push({
@@ -26,6 +33,7 @@ module.exports = {
   plugins: [
     ...filesystemSetup,
     `gatsby-transformer-yaml`,
+    `gatsby-plugin-netlify-cms-paths`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -48,7 +56,8 @@ module.exports = {
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`
+          `gatsby-remark-smartypants`,
+          `gatsby-plugin-netlify-cms-paths`
         ]
       }
     },

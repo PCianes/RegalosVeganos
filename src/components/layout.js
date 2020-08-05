@@ -91,14 +91,9 @@ const Layout = props => {
       </main>
       <footer className="site-foot">
         &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link> &mdash;
-        Built with{" "}
-        <a
-          href="https://gatsbyjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Gatsby
-        </a>
+        <Link to="/aviso" rel="noopener noreferrer">
+          Aviso legal
+        </Link>
       </footer>
     </div>
   );
