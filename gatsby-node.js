@@ -8,15 +8,30 @@ const remarkHTML = require("remark-html");
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
+  const categoryPage = path.resolve(`./src/templates/category-page.js`);
   const blogPost = path.resolve(`./src/templates/blog-post.js`);
   const tagPage = path.resolve(`./src/templates/tag-page.js`);
 
   return graphql(
     `
       {
-        allMarkdownRemark(
+        categories: allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
+          filter: { fields: { collection: { eq: "categories" } } }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+        blog: allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+          filter: { fields: { collection: { eq: "blog" } } }
         ) {
           edges {
             node {
@@ -37,8 +52,19 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors;
     }
 
+    //Create main categories pages
+    result.data.categories.edges.forEach(category => {
+      createPage({
+        path: category.node.fields.slug,
+        component: categoryPage,
+        context: {
+          slug: category.node.fields.slug
+        }
+      });
+    });
+
     // Create blog posts pages.
-    const posts = result.data.allMarkdownRemark.edges;
+    const posts = result.data.blog.edges;
     const tagSet = new Set();
 
     posts.forEach((post, index) => {
@@ -115,11 +141,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
           name: section.name,
           intro: section.intro ? toHTML(section.intro) : "",
           category: section.category.map(category => {
+            const slug = category["category-relation"].substring(
+              0,
+              category["category-relation"].lastIndexOf("/index")
+            );
             return {
-              link: category["category-relation"].substring(
-                0,
-                category["category-relation"].lastIndexOf("/index")
-              ),
+              relation: `/${slug}/`,
               image: category.image,
               intro: toHTML(category.intro)
             };

@@ -108,5 +108,8 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-sass"
-  ]
+  ],
+  mapping: {
+    "PagesYaml.fields.html.section.category.relation": `MarkdownRemark.fields.slug`
+  }
 };
