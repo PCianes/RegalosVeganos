@@ -110,6 +110,8 @@ module.exports = {
     "gatsby-plugin-sass"
   ],
   mapping: {
-    "PagesYaml.fields.html.section.category.relation": `MarkdownRemark.fields.slug`
+    "PagesYaml.fields.html.section.category.relation": `MarkdownRemark.fields.relation`,
+    "MarkdownRemark.frontmatter.products.product_relation": `MarkdownRemark.fields.relation`,
+    "MarkdownRemark.frontmatter.section.products.product_relation": `MarkdownRemark.fields.relation`
   }
 };

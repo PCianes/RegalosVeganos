@@ -116,6 +116,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value: slug
     });
+    //New field ready to mapping in gatsby-config.js according to setup on Netlify CMS
+    createNodeField({
+      name: `relation`,
+      node,
+      value: `${slug.substring(1)}index`
+    });
     createNodeField({
       name: `collection`,
       node,
@@ -141,12 +147,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
           name: section.name,
           intro: section.intro ? toHTML(section.intro) : "",
           category: section.category.map(category => {
-            const slug = category["category-relation"].substring(
-              0,
-              category["category-relation"].lastIndexOf("/index")
-            );
             return {
-              relation: `/${slug}/`,
+              relation: category["category-relation"],
               image: category.image,
               intro: toHTML(category.intro)
             };
