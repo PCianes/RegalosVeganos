@@ -1,6 +1,9 @@
 const path = require(`path`);
 const _ = require("lodash");
-const { createFilePath } = require(`gatsby-source-filesystem`);
+const {
+  createFilePath,
+  createRemoteFileNode
+} = require(`gatsby-source-filesystem`);
 
 const remark = require("remark");
 const remarkHTML = require("remark-html");
@@ -105,11 +108,19 @@ exports.createPages = ({ graphql, actions }) => {
   });
 };
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
+exports.onCreateNode = async ({
+  node,
+  actions,
+  getNode,
+  createNodeId,
+  cache,
+  store
+}) => {
+  const { createNodeField, createNode } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode });
+    const relation = `${slug.substring(1)}index`;
     const collection = getNode(node.parent).sourceInstanceName;
     createNodeField({
       name: `slug`,
@@ -120,13 +131,26 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `relation`,
       node,
-      value: `${slug.substring(1)}index`
+      value: relation
     });
     createNodeField({
       name: `collection`,
       node,
       value: collection
     });
+    if ("product" === collection) {
+      //Create a fileNode which is essentially downloading the file (image) from a remore url and storing that as an object"
+      const fileNode = await createRemoteFileNode({
+        url: node.frontmatter["thumbnail-link"],
+        cache,
+        createNode,
+        createNodeId,
+        store
+      });
+      if (fileNode) {
+        node.externalImage___NODE = fileNode.id;
+      }
+    }
   }
   if (node.internal.type === `PagesYaml`) {
     const { sourceInstanceName, name } = getNode(node.parent);

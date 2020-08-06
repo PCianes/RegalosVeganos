@@ -1,12 +1,24 @@
 import React from "react";
-import Image from "gatsby-image";
+import Img from "gatsby-image";
 
-function Product({ data: { title, affiliate_link, thumbnail_link } }) {
+function Product({ imageFixed, data: { title, affiliate_link } }) {
   return (
     <div>
       <p>{title}</p>
       <p>{affiliate_link}</p>
-      <img width="200px" src={thumbnail_link} alt={title} />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <div style={{ width: "100%" }}>
+          <a href="#">
+            <Img fixed={imageFixed} />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

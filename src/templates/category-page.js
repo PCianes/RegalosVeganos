@@ -21,9 +21,14 @@ const CategoryTemplate = ({ data: propsData, location }) => {
         />
         <div>
           {data.products.length > 0 &&
-            data.products.map(product => (
-              <Product data={product.product_relation.frontmatter} />
-            ))}
+            data.products.map(({ product_relation: data }) => {
+              return (
+                <Product
+                  imageFixed={data.externalImage.childImageSharp.fixed}
+                  data={data.frontmatter}
+                />
+              );
+            })}
         </div>
       </article>
       {data.section.length > 0 &&
@@ -36,8 +41,11 @@ const CategoryTemplate = ({ data: propsData, location }) => {
                 dangerouslySetInnerHTML={{ __html: body }}
               />
               {products.length > 0 &&
-                products.map(product => (
-                  <Product data={product.product_relation.frontmatter} />
+                products.map(({ product_relation: data }) => (
+                  <Product
+                    imageFixed={data.externalImage.childImageSharp.fixed}
+                    data={data.frontmatter}
+                  />
                 ))}
             </section>
           );
@@ -59,9 +67,15 @@ export const pageQuery = graphql`
         title
         products {
           product_relation {
+            externalImage {
+              childImageSharp {
+                fixed(width: 300) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
             frontmatter {
               affiliate_link
-              thumbnail_link
               title
             }
           }
@@ -71,9 +85,15 @@ export const pageQuery = graphql`
           body
           products {
             product_relation {
+              externalImage {
+                childImageSharp {
+                  fixed(width: 300) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
               frontmatter {
                 affiliate_link
-                thumbnail_link
                 title
               }
             }
