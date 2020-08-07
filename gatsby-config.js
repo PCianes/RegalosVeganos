@@ -103,6 +103,12 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-eslint`,
     `gatsby-plugin-netlify-cache`,
+    {
+      resolve: `gatsby-plugin-posthog-analytics`,
+      options: {
+        apiKey: 'otdOXgS2-6CAxMTADkx4TesiL524t2EuFhhQY2qLD-E',
+      },
+    },
   ],
   mapping: {
     'PagesYaml.fields.html.section.category.relation': `MarkdownRemark.fields.relation`,
