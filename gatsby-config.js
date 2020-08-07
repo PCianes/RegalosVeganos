@@ -86,21 +86,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: ``,
-      },
-    },
-    `gatsby-plugin-feed`,
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: siteConfig.name,
         short_name: siteConfig.shortName,
         start_url: siteConfig.prefix,
-        background_color: `#000000`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
+        background_color: `#ffffff`,
+        theme_color: `#000000`,
+        display: `standalone`,
         icon: `static/maskable_icon.png`,
       },
     },

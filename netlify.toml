@@ -13,11 +13,11 @@
 
   # optional, fails build when a category is below a threshold
   [plugins.inputs.thresholds]
-    performance = 0.9
-    accessibility = 0.9
-    best-practices = 0.9
-    seo = 0.9
-    pwa = 0.9
+    performance = 0.85
+    accessibility = 0.85
+    best-practices = 0.85
+    seo = 0.85
+    pwa = 0.85
 
 # Headers to return with requests for the specified paths
 [[headers]]
