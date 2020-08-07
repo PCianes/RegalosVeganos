@@ -1,0 +1,31 @@
+.row {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.shadow {
+  -webkit-box-shadow: 4px 6px 16px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 6px 16px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 6px 16px 1px rgba(0, 0, 0, 0.75);
+}
+
+blockquote {
+  border-left: none;
+  color: initial;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+article.post-content {
+  padding: 0;
+}
+
+.site-head-center {
+  justify-content: center;
+  a {
+    color: white;
+    background-color: black;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}

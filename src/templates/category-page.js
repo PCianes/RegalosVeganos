@@ -11,15 +11,15 @@ const CategoryTemplate = ({ data: propsData, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={data.title} description={excerpt} />
-      <article className="post-content">
-        <header className="post-content-header">
+      <section>
+        <header className="post-content post-content-header">
           <h1 className="post-content-title">{data.title}</h1>
+          <div
+            className="post-content-body"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         </header>
-        <div
-          className="post-content-body"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-        <div>
+        <div className="row">
           {data.products.length > 0 &&
             data.products.map(({ product_relation: data }) => {
               return (
@@ -30,23 +30,27 @@ const CategoryTemplate = ({ data: propsData, location }) => {
               )
             })}
         </div>
-      </article>
+      </section>
       {data.section.length > 0 &&
         data.section.map(({ title, body, products }) => {
           return (
             <section>
-              <h2>{title}</h2>
-              <div
-                className="post-content-body"
-                dangerouslySetInnerHTML={{ __html: body }}
-              />
-              {products.length > 0 &&
-                products.map(({ product_relation: data }) => (
-                  <Product
-                    imageFixed={data.externalImage.childImageSharp.fixed}
-                    data={data.frontmatter}
-                  />
-                ))}
+              <div className="post-content">
+                <h2 className="post-content-title">{title}</h2>
+                <div
+                  className="post-content-body"
+                  dangerouslySetInnerHTML={{ __html: body }}
+                />
+              </div>
+              <div className="row">
+                {products.length > 0 &&
+                  products.map(({ product_relation: data }) => (
+                    <Product
+                      imageFixed={data.externalImage.childImageSharp.fixed}
+                      data={data.frontmatter}
+                    />
+                  ))}
+              </div>
             </section>
           )
         })}
@@ -69,7 +73,7 @@ export const pageQuery = graphql`
           product_relation {
             externalImage {
               childImageSharp {
-                fixed(width: 300) {
+                fixed(width: 200, height: 200) {
                   ...GatsbyImageSharpFixed
                 }
               }
@@ -87,7 +91,7 @@ export const pageQuery = graphql`
             product_relation {
               externalImage {
                 childImageSharp {
-                  fixed(width: 300) {
+                  fixed(width: 200, height: 200) {
                     ...GatsbyImageSharpFixed
                   }
                 }

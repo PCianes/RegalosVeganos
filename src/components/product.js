@@ -3,22 +3,11 @@ import Img from 'gatsby-image'
 
 function Product({ imageFixed, data: { title, affiliate_link } }) {
   return (
-    <div>
-      <p>{title}</p>
-      <p>{affiliate_link}</p>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <div style={{ width: '100%' }}>
-          <a href="#">
-            <Img fixed={imageFixed} />
-          </a>
-        </div>
-      </div>
+    <div className="col-3" style={{ textAlign: 'center' }}>
+      <a target="_blank" href={affiliate_link} rel="noreferrer">
+        <Img fixed={imageFixed} className="kg-image shadow" />
+        <blockquote>{title}</blockquote>
+      </a>
     </div>
   )
 }
