@@ -8,117 +8,117 @@ public_folder: /img
 logo_url: /login.svg
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'content/blog'
     create: true
-    slug: "index"
-    media_folder: ""
-    public_folder: ""
-    path: "{{title}}/index"
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
     editor:
       preview: true
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
-      - { label: "Publish Date", name: "date", widget: "date" }
-      - label: "Tags"
-        name: "tags"
-        widget: "select"
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Thumbnail', name: 'thumbnail', widget: 'image' }
+      - { label: 'Publish Date', name: 'date', widget: 'date' }
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'select'
         multiple: true
-        options: ["vaporwave", "retrowave", "future-funk"]
-        default: ["vaporwave"]
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-  - name: "product"
-    label: "Products"
-    folder: "content/product"
+        options: ['vaporwave', 'retrowave', 'future-funk']
+        default: ['vaporwave']
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'product'
+    label: 'Products'
+    folder: 'content/product'
     create: true
-    slug: "index"
-    media_folder: ""
-    public_folder: ""
-    path: "{{title}}/index"
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
     editor:
       preview: true
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Affiliate Link", name: "affiliate-link", widget: "string" }
-      - { label: "Thumbnail", name: "thumbnail-link", widget: "string" }
-  - name: "category"
-    label: "Categories"
-    folder: "content/categories"
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Affiliate Link', name: 'affiliate-link', widget: 'string' }
+      - { label: 'Thumbnail', name: 'thumbnail-link', widget: 'string' }
+  - name: 'category'
+    label: 'Categories'
+    folder: 'content/categories'
     create: true
-    slug: "index"
-    media_folder: ""
-    public_folder: ""
-    path: "{{title}}/index"
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
     editor:
       preview: true
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - label: "Main products"
-        name: "products"
-        widget: "list"
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Main products'
+        name: 'products'
+        widget: 'list'
         fields:
-          - label: "Product"
-            name: "product-relation"
-            widget: "relation"
-            collection: "product"
-            searchFields: ["title"]
-            valueField: "{{slug}}"
-      - label: "Section"
-        name: "section"
-        widget: "list"
+          - label: 'Product'
+            name: 'product-relation'
+            widget: 'relation'
+            collection: 'product'
+            searchFields: ['title']
+            valueField: '{{slug}}'
+      - label: 'Section'
+        name: 'section'
+        widget: 'list'
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - label: "Products"
-            name: "products"
-            widget: "list"
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - label: 'Products'
+            name: 'products'
+            widget: 'list'
             fields:
-              - label: "Product"
-                name: "product-relation"
-                widget: "relation"
-                collection: "product"
-                searchFields: ["title"]
-                valueField: "{{slug}}"
-                displayFields: ["{{title}}"]
-  - label: "Pages"
-    name: "pages"
+              - label: 'Product'
+                name: 'product-relation'
+                widget: 'relation'
+                collection: 'product'
+                searchFields: ['title']
+                valueField: '{{slug}}'
+                displayFields: ['{{title}}']
+  - label: 'Pages'
+    name: 'pages'
     files:
-      - label: "Home Page"
-        name: "home"
-        file: "content/pages/home.yml"
+      - label: 'Home Page'
+        name: 'home'
+        file: 'content/pages/home.yml'
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "markdown" }
-          - label: "Section"
-            name: "section"
-            widget: "list"
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Intro', name: 'intro', widget: 'markdown' }
+          - label: 'Section'
+            name: 'section'
+            widget: 'list'
             fields:
-              - { label: "Name", name: "name", widget: "string" }
+              - { label: 'Name', name: 'name', widget: 'string' }
               - {
-                  label: "Intro",
-                  name: "intro",
-                  widget: "markdown",
+                  label: 'Intro',
+                  name: 'intro',
+                  widget: 'markdown',
                   required: false,
                 }
-              - label: "Category"
-                name: "category"
-                widget: "list"
+              - label: 'Category'
+                name: 'category'
+                widget: 'list'
                 fields:
-                  - label: "Category"
-                    name: "category-relation"
-                    widget: "relation"
-                    collection: "category"
-                    displayFields: ["title"]
-                    searchFields: ["title"]
-                    valueField: "{{slug}}"
-                  - { label: "Image", name: "image", widget: "image" }
+                  - label: 'Category'
+                    name: 'category-relation'
+                    widget: 'relation'
+                    collection: 'category'
+                    displayFields: ['title']
+                    searchFields: ['title']
+                    valueField: '{{slug}}'
+                  - { label: 'Image', name: 'image', widget: 'image' }
                   - {
-                      label: "Intro",
-                      name: "intro",
-                      widget: "markdown",
+                      label: 'Intro',
+                      name: 'intro',
+                      widget: 'markdown',
                       required: false,
                     }

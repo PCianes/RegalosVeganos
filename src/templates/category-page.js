@@ -1,13 +1,13 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import Product from "../components/product";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Product from '../components/product'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 const CategoryTemplate = ({ data: propsData, location }) => {
-  const { frontmatter: data, html, excerpt } = propsData.category;
-  const siteTitle = propsData.site.siteMetadata.title;
+  const { frontmatter: data, html, excerpt } = propsData.category
+  const siteTitle = propsData.site.siteMetadata.title
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={data.title} description={excerpt} />
@@ -27,7 +27,7 @@ const CategoryTemplate = ({ data: propsData, location }) => {
                   imageFixed={data.externalImage.childImageSharp.fixed}
                   data={data.frontmatter}
                 />
-              );
+              )
             })}
         </div>
       </article>
@@ -48,11 +48,11 @@ const CategoryTemplate = ({ data: propsData, location }) => {
                   />
                 ))}
             </section>
-          );
+          )
         })}
     </Layout>
-  );
-};
+  )
+}
 
 export const pageQuery = graphql`
   query CategoryBySlug($slug: String!) {
@@ -104,6 +104,6 @@ export const pageQuery = graphql`
       excerpt
     }
   }
-`;
+`
 
-export default CategoryTemplate;
+export default CategoryTemplate

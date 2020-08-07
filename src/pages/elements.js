@@ -1,46 +1,44 @@
-import React from "react"
-import { graphql, StaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react'
+import { graphql, StaticQuery } from 'gatsby'
+import Img from 'gatsby-image'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
-import "../style/normalize.css"
-import "../style/all.scss"
+import '../style/normalize.css'
+import '../style/all.scss'
 
 const ElementsPage = ({ data }, location) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
     <Layout title={siteTitle}>
-      <SEO
-        title="Elements"
-      />
+      <SEO title="Elements" />
 
       <article className="post-content page-template no-image">
         <div className="post-content-body">
           <p>
-            This is{" "}
+            This is{' '}
             <strong>
               <strong>bold</strong>
-            </strong>{" "}
-            and this is{" "}
+            </strong>{' '}
+            and this is{' '}
             <strong>
               <strong>strong</strong>
             </strong>
-            . This is{" "}
+            . This is{' '}
             <em>
               <em>italic</em>
-            </em>{" "}
-            and this is{" "}
+            </em>{' '}
+            and this is{' '}
             <em>
               <em>emphasized</em>
             </em>
-            . This is <sup>superscript</sup>text and this is{" "}
+            . This is <sup>superscript</sup>text and this is{' '}
             <sub>subscript</sub> text. This is <u>underlined</u> and this is
-            code:{" "}
+            code:{' '}
             <code>
-              for (;;) {"{"} ... {"}"}
+              for (;;) {'{'} ... {'}'}
             </code>
             . Finally, this is a <a href="/">link</a>.
           </p>
@@ -342,7 +340,7 @@ const ElementsPage = ({ data }, location) => {
                   id="demo-message"
                   placeholder="Enter your message"
                   rows={6}
-                  defaultValue={""}
+                  defaultValue={''}
                 />
               </div>
               {/* Break */}
@@ -365,86 +363,74 @@ const ElementsPage = ({ data }, location) => {
           <h2 id="code">Code</h2>
           <pre>
             <code>
-              i = <span style={{color: "rgb(191,90,242)"}}>0</span>;{"\n"}
-              {"\n"}<span style={{color: "rgb(10,132,255)"}}>while</span> (!deck.<span style={{color: "rgb(255,214,10)"}}>isInOrder</span>()) {"{"}
-              {"\n"}
-              {"    "}print <span style={{color: "rgb(50,215,75)"}}>'Iteration '</span> + i;{"\n"}
-              {"    "}deck.<span style={{color: "rgb(255,214,10)"}}>shuffle</span>();{"\n"}
-              {"    "}i++;{"\n"}
-              {"}"}
-              {"\n"}
-              {"\n"}print <span style={{color: "rgb(50,215,75)"}}>'It took '</span> + i + <span style={{color: "rgb(50,215,75)"}}>' iterations to sort the deck.'</span>;
+              i = <span style={{ color: 'rgb(191,90,242)' }}>0</span>;{'\n'}
+              {'\n'}
+              <span style={{ color: 'rgb(10,132,255)' }}>while</span> (!deck.
+              <span style={{ color: 'rgb(255,214,10)' }}>
+                isInOrder
+              </span>()) {'{'}
+              {'\n'}
+              {'    '}print{' '}
+              <span style={{ color: 'rgb(50,215,75)' }}>'Iteration '</span> + i;
+              {'\n'}
+              {'    '}deck.
+              <span style={{ color: 'rgb(255,214,10)' }}>shuffle</span>();{'\n'}
+              {'    '}i++;{'\n'}
+              {'}'}
+              {'\n'}
+              {'\n'}print{' '}
+              <span style={{ color: 'rgb(50,215,75)' }}>'It took '</span> + i +{' '}
+              <span style={{ color: 'rgb(50,215,75)' }}>
+                ' iterations to sort the deck.'
+              </span>
+              ;
             </code>
           </pre>
           <h2 id="grid-system">Grid system</h2>
           <div className="row">
             <div className="col-demo col-12">
-              <div>
-                12
-              </div>
+              <div>12</div>
             </div>
           </div>
           <div className="row">
             <div className="col-demo col-3">
-              <div>
-                3
-              </div>
+              <div>3</div>
             </div>
             <div className="col-demo col-9">
-              <div>
-                9
-              </div>
+              <div>9</div>
             </div>
           </div>
           <div className="row">
             <div className="col-demo col-6">
-              <div>
-                6
-              </div>
+              <div>6</div>
             </div>
             <div className="col-demo col-6">
-              <div>
-                6
-              </div>
+              <div>6</div>
             </div>
           </div>
           <div className="row">
             <div className="col-demo col">
-              <div>
-                auto
-              </div>
+              <div>auto</div>
             </div>
             <div className="col-demo col">
-              <div>
-                auto
-              </div>
+              <div>auto</div>
             </div>
             <div className="col-demo col">
-              <div>
-                auto
-              </div>
+              <div>auto</div>
             </div>
           </div>
           <div className="row">
             <div className="col-demo col">
-              <div>
-                auto
-              </div>
+              <div>auto</div>
             </div>
             <div className="col-demo col">
-              <div>
-                auto
-              </div>
+              <div>auto</div>
             </div>
             <div className="col-demo col">
-              <div>
-                auto
-              </div>
+              <div>auto</div>
             </div>
             <div className="col-demo col">
-              <div>
-                auto
-              </div>
+              <div>auto</div>
             </div>
           </div>
         </div>

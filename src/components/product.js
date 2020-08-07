@@ -1,5 +1,5 @@
-import React from "react";
-import Img from "gatsby-image";
+import React from 'react'
+import Img from 'gatsby-image'
 
 function Product({ imageFixed, data: { title, affiliate_link } }) {
   return (
@@ -8,19 +8,19 @@ function Product({ imageFixed, data: { title, affiliate_link } }) {
       <p>{affiliate_link}</p>
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center"
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
-        <div style={{ width: "100%" }}>
+        <div style={{ width: '100%' }}>
           <a href="#">
             <Img fixed={imageFixed} />
           </a>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Product;
+export default Product

@@ -1,15 +1,15 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
+import React from 'react'
+import { graphql, Link } from 'gatsby'
+import Img from 'gatsby-image'
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
-import "../style/normalize.css";
-import "../style/all.scss";
+import '../style/normalize.css'
+import '../style/all.scss'
 
 const Index = ({ data }) => {
-  const { title, intro, section } = data.home.fields.html;
+  const { title, intro, section } = data.home.fields.html
   return (
     <Layout title={data.site.siteMetadata.title}>
       <SEO
@@ -20,7 +20,7 @@ const Index = ({ data }) => {
           `regalos veganos`,
           `veganismo`,
           `vegan`,
-          `tienda veganos`
+          `tienda veganos`,
         ]}
       />
       <header className="page-head">
@@ -52,14 +52,14 @@ const Index = ({ data }) => {
                       </Link>
                       <p dangerouslySetInnerHTML={{ __html: intro }}></p>
                     </article>
-                  );
+                  )
                 })}
             </section>
-          );
+          )
         })}
     </Layout>
-  );
-};
+  )
+}
 
 export const query = graphql`
   {
@@ -102,6 +102,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default Index;
+export default Index

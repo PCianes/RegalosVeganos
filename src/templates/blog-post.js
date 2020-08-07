@@ -1,9 +1,9 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -24,7 +24,9 @@ class BlogPostTemplate extends React.Component {
           </header>
 
           {post.frontmatter.description && (
-            <p className="post-content-excerpt">{post.frontmatter.description}</p>
+            <p className="post-content-excerpt">
+              {post.frontmatter.description}
+            </p>
           )}
 
           {post.frontmatter.thumbnail && (

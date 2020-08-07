@@ -1,12 +1,12 @@
-import React from "react"
-import { graphql, StaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react'
+import { graphql, StaticQuery } from 'gatsby'
+import Img from 'gatsby-image'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
-import "../style/normalize.css"
-import "../style/all.scss"
+import '../style/normalize.css'
+import '../style/all.scss'
 
 const AboutPage = ({ data }, location) => {
   const siteTitle = data.site.siteMetadata.title
@@ -36,17 +36,17 @@ const AboutPage = ({ data }, location) => {
           <p>
             Both post and page templates are light and minimal, with all the
             focus on the content while the design of the theme gets out of the
-            way. Beneath the hood, London enjoys the full power of the{" "}
+            way. Beneath the hood, London enjoys the full power of the{' '}
             <a href="https://docs.ghost.org/api/handlebars-themes/">
               Ghost Handlebars Theme API
-            </a>{" "}
+            </a>{' '}
             to provide limitless customisation options and dynamic styles.
           </p>
           <p>
-            Don't forget to check out the{" "}
+            Don't forget to check out the{' '}
             <a href="https://docs.ghost.org/integrations/">
               Ghost Integrations Directory
-            </a>{" "}
+            </a>{' '}
             for more ways to integrate Ghost with your favourite services.
           </p>
         </div>

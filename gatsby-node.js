@@ -1,19 +1,19 @@
-const path = require(`path`);
-const _ = require("lodash");
+const path = require(`path`)
+const _ = require('lodash')
 const {
   createFilePath,
-  createRemoteFileNode
-} = require(`gatsby-source-filesystem`);
+  createRemoteFileNode,
+} = require(`gatsby-source-filesystem`)
 
-const remark = require("remark");
-const remarkHTML = require("remark-html");
+const remark = require('remark')
+const remarkHTML = require('remark-html')
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
 
-  const categoryPage = path.resolve(`./src/templates/category-page.js`);
-  const blogPost = path.resolve(`./src/templates/blog-post.js`);
-  const tagPage = path.resolve(`./src/templates/tag-page.js`);
+  const categoryPage = path.resolve(`./src/templates/category-page.js`)
+  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const tagPage = path.resolve(`./src/templates/tag-page.js`)
 
   return graphql(
     `
@@ -52,7 +52,7 @@ exports.createPages = ({ graphql, actions }) => {
     `
   ).then(result => {
     if (result.errors) {
-      throw result.errors;
+      throw result.errors
     }
 
     //Create main categories pages
@@ -61,25 +61,24 @@ exports.createPages = ({ graphql, actions }) => {
         path: category.node.fields.slug,
         component: categoryPage,
         context: {
-          slug: category.node.fields.slug
-        }
-      });
-    });
+          slug: category.node.fields.slug,
+        },
+      })
+    })
 
     // Create blog posts pages.
-    const posts = result.data.blog.edges;
-    const tagSet = new Set();
+    const posts = result.data.blog.edges
+    const tagSet = new Set()
 
     posts.forEach((post, index) => {
-      const previous =
-        index === posts.length - 1 ? null : posts[index + 1].node;
-      const next = index === 0 ? null : posts[index - 1].node;
+      const previous = index === posts.length - 1 ? null : posts[index + 1].node
+      const next = index === 0 ? null : posts[index - 1].node
 
       // Get tags for tags pages.
       if (post.node.frontmatter.tags) {
         post.node.frontmatter.tags.forEach(tag => {
-          tagSet.add(tag);
-        });
+          tagSet.add(tag)
+        })
       }
 
       createPage({
@@ -88,10 +87,10 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           slug: post.node.fields.slug,
           previous,
-          next
-        }
-      });
-    });
+          next,
+        },
+      })
+    })
 
     // Create tags pages.
     tagSet.forEach(tag => {
@@ -99,14 +98,14 @@ exports.createPages = ({ graphql, actions }) => {
         path: `/tags/${_.kebabCase(tag)}/`,
         component: tagPage,
         context: {
-          tag
-        }
-      });
-    });
+          tag,
+        },
+      })
+    })
 
-    return null;
-  });
-};
+    return null
+  })
+}
 
 exports.onCreateNode = async ({
   node,
@@ -114,87 +113,87 @@ exports.onCreateNode = async ({
   getNode,
   createNodeId,
   cache,
-  store
+  store,
 }) => {
-  const { createNodeField, createNode } = actions;
+  const { createNodeField, createNode } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode });
-    const relation = `${slug.substring(1)}index`;
-    const collection = getNode(node.parent).sourceInstanceName;
+    const slug = createFilePath({ node, getNode })
+    const relation = `${slug.substring(1)}index`
+    const collection = getNode(node.parent).sourceInstanceName
     createNodeField({
       name: `slug`,
       node,
-      value: slug
-    });
+      value: slug,
+    })
     //New field ready to mapping in gatsby-config.js according to setup on Netlify CMS
     createNodeField({
       name: `relation`,
       node,
-      value: relation
-    });
+      value: relation,
+    })
     createNodeField({
       name: `collection`,
       node,
-      value: collection
-    });
-    if ("product" === collection) {
+      value: collection,
+    })
+    if ('product' === collection) {
       //Create a fileNode which is essentially downloading the file (image) from a remore url and storing that as an object"
       const fileNode = await createRemoteFileNode({
-        url: node.frontmatter["thumbnail-link"],
+        url: node.frontmatter['thumbnail-link'],
         cache,
         createNode,
         createNodeId,
-        store
-      });
+        store,
+      })
       if (fileNode) {
-        node.externalImage___NODE = fileNode.id;
+        node.externalImage___NODE = fileNode.id
       }
     }
   }
   if (node.internal.type === `PagesYaml`) {
-    const { sourceInstanceName, name } = getNode(node.parent);
+    const { sourceInstanceName, name } = getNode(node.parent)
     createNodeField({
       name: `filename`,
       node,
-      value: name
-    });
+      value: name,
+    })
     createNodeField({
       name: `collection`,
       node,
-      value: sourceInstanceName
-    });
+      value: sourceInstanceName,
+    })
 
     if (`home` === name) {
       const section = node.section.map(section => {
         return {
           name: section.name,
-          intro: section.intro ? toHTML(section.intro) : "",
+          intro: section.intro ? toHTML(section.intro) : '',
           category: section.category.map(category => {
             return {
-              relation: category["category-relation"],
+              relation: category['category-relation'],
               image: category.image,
-              intro: toHTML(category.intro)
-            };
-          })
-        };
-      });
+              intro: toHTML(category.intro),
+            }
+          }),
+        }
+      })
       createNodeField({
         name: `html`,
         node,
         value: {
           title: node.title,
           intro: toHTML(node.intro),
-          section
-        }
-      });
+          section,
+        },
+      })
     }
   }
-};
+}
 
 const toHTML = data => {
   return remark()
     .use(remarkHTML)
     .processSync(data)
-    .toString();
-};
+    .toString()
+}
