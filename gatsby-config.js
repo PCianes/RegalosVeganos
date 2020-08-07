@@ -107,8 +107,9 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    'gatsby-plugin-sass',
-    'gatsby-plugin-eslint',
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-eslint`,
+    `gatsby-plugin-netlify-headers`, // last one
   ],
   mapping: {
     'PagesYaml.fields.html.section.category.relation': `MarkdownRemark.fields.relation`,
