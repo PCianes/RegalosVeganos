@@ -1,25 +1,18 @@
-const urljoin = require("url-join");
+const urljoin = require('url-join')
 
-const siteConfig = require("./siteConfig");
+const siteConfig = require('./siteConfig')
 
-const contentTypes = [
-  "blog",
-  "product",
-  "pages",
-  "categories",
-  "assets",
-  "img"
-];
-const filesystemSetup = [];
-contentTypes.map(slug => {
+const contentTypes = ['blog', 'product', 'pages', 'categories', 'assets', 'img']
+const filesystemSetup = []
+contentTypes.forEach(slug => {
   filesystemSetup.push({
     resolve: `gatsby-source-filesystem`,
     options: {
       path: `${__dirname}/content/${slug}`,
-      name: slug
-    }
-  });
-});
+      name: slug,
+    },
+  })
+})
 module.exports = {
   siteMetadata: {
     title: siteConfig.name,
@@ -27,8 +20,8 @@ module.exports = {
     description: siteConfig.description,
     siteUrl: urljoin(siteConfig.url, siteConfig.prefix),
     social: {
-      twitter: siteConfig.twitter
-    }
+      twitter: siteConfig.twitter,
+    },
   },
   plugins: [
     ...filesystemSetup,
@@ -45,21 +38,21 @@ module.exports = {
               withWebp: true,
               showCaptions: true,
               quality: 75,
-              wrapperStyle: `margin: 7vw 0;`
-            }
+              wrapperStyle: `margin: 7vw 0;`,
+            },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`
-            }
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
-          `gatsby-plugin-netlify-cms-paths`
-        ]
-      }
+          `gatsby-plugin-netlify-cms-paths`,
+        ],
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -67,16 +60,16 @@ module.exports = {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [
-          require("postcss-easy-import")(),
-          require("postcss-custom-properties")({
-            preserve: false
+          require('postcss-easy-import')(),
+          require('postcss-custom-properties')({
+            preserve: false,
           }),
-          require("postcss-color-function")(),
-          require("autoprefixer")({
-            browserlist: ["last 2 versions"]
-          })
-        ]
-      }
+          require('postcss-color-function')(),
+          require('autoprefixer')({
+            browserlist: ['last 2 versions'],
+          }),
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-purgecss`,
@@ -87,16 +80,16 @@ module.exports = {
         // Enable while using `gatsby develop`
         // tailwind: true, // Enable tailwindcss support
         // whitelist: ['whitelist'], // Don't remove this selector
-        ignore: ["/ignored.css", "prismjs/", "/prism.css", "docsearch.js/"],
+        ignore: ['/ignored.css', 'prismjs/', '/prism.css', 'docsearch.js/'],
         // Ignore files/folders
-        purgeOnly: ["components/", "/main.css", "bootstrap/"] // Purge only these files/folders
-      }
+        purgeOnly: ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: ``
-      }
+        trackingId: ``,
+      },
     },
     `gatsby-plugin-feed`,
     {
@@ -108,18 +101,18 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`
-      }
+        icon: `content/assets/gatsby-icon.png`,
+      },
     },
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    "gatsby-plugin-sass",
-    "gatsby-plugin-eslint"
+    'gatsby-plugin-sass',
+    'gatsby-plugin-eslint',
   ],
   mapping: {
-    "PagesYaml.fields.html.section.category.relation": `MarkdownRemark.fields.relation`,
-    "MarkdownRemark.frontmatter.products.product_relation": `MarkdownRemark.fields.relation`,
-    "MarkdownRemark.frontmatter.section.products.product_relation": `MarkdownRemark.fields.relation`
-  }
-};
+    'PagesYaml.fields.html.section.category.relation': `MarkdownRemark.fields.relation`,
+    'MarkdownRemark.frontmatter.products.product_relation': `MarkdownRemark.fields.relation`,
+    'MarkdownRemark.frontmatter.section.products.product_relation': `MarkdownRemark.fields.relation`,
+  },
+}
