@@ -32,7 +32,6 @@
     "gatsby-transformer-sharp": "^2.1.19",
     "gatsby-transformer-yaml": "^2.4.10",
     "netlify-cms-app": "^2.12.19",
-    "netlify-plugin-gatsby-cache": "^0.3.2",
     "node-sass": "^4.13.0",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
