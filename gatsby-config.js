@@ -1,4 +1,5 @@
 const urljoin = require("url-join");
+
 const siteConfig = require("./siteConfig");
 
 const contentTypes = [
@@ -19,7 +20,6 @@ contentTypes.map(slug => {
     }
   });
 });
-
 module.exports = {
   siteMetadata: {
     title: siteConfig.name,
@@ -68,20 +68,27 @@ module.exports = {
       options: {
         postCssPlugins: [
           require("postcss-easy-import")(),
-          require("postcss-custom-properties")({ preserve: false }),
+          require("postcss-custom-properties")({
+            preserve: false
+          }),
           require("postcss-color-function")(),
-          require("autoprefixer")({ browserlist: ["last 2 versions"] })
+          require("autoprefixer")({
+            browserlist: ["last 2 versions"]
+          })
         ]
       }
     },
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        printRejected: true, // Print removed selectors and processed file names
-        develop: true, // Enable while using `gatsby develop`
+        printRejected: true,
+        // Print removed selectors and processed file names
+        develop: true,
+        // Enable while using `gatsby develop`
         // tailwind: true, // Enable tailwindcss support
         // whitelist: ['whitelist'], // Don't remove this selector
-        ignore: ["/ignored.css", "prismjs/", "/prism.css", "docsearch.js/"], // Ignore files/folders
+        ignore: ["/ignored.css", "prismjs/", "/prism.css", "docsearch.js/"],
+        // Ignore files/folders
         purgeOnly: ["components/", "/main.css", "bootstrap/"] // Purge only these files/folders
       }
     },
@@ -107,7 +114,8 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    "gatsby-plugin-sass"
+    "gatsby-plugin-sass",
+    "gatsby-plugin-eslint"
   ],
   mapping: {
     "PagesYaml.fields.html.section.category.relation": `MarkdownRemark.fields.relation`,

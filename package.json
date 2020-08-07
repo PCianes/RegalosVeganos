@@ -45,6 +45,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.5.1",
+    "eslint-config-react-app": "^5.2.1",
+    "gatsby-plugin-eslint": "^2.0.8",
     "husky": "^2.2.0",
     "postcss-color-function": "^4.1.0",
     "postcss-custom-properties": "^8.0.10",
