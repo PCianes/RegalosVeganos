@@ -2,7 +2,7 @@ const urljoin = require('url-join')
 
 const siteConfig = require('./siteConfig')
 
-const contentTypes = ['blog', 'product', 'pages', 'categories', 'assets', 'img']
+const contentTypes = ['blog', 'product', 'pages', 'categories', 'img']
 const filesystemSetup = []
 contentTypes.forEach(slug => {
   filesystemSetup.push({
@@ -101,7 +101,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `static/manifest-logo.png`,
       },
     },
     `gatsby-plugin-netlify-cms`,

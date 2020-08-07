@@ -46,7 +46,7 @@ const Index = ({ data }) => {
                   category.map(({ relation, intro, image }) => {
                     return (
                       <article
-                        className="col post-content"
+                        className="col post-content home"
                         style={{ textAlign: 'center' }}
                       >
                         <Link class="post-card-link" to={relation.fields.slug}>
