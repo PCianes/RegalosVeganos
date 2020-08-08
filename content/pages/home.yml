@@ -19,6 +19,11 @@ section:
           ¿Qué mejor manera que comprando una camiseta vegana que muestre un
           mensaje que lo difunda?
         image: /img/regalos-veganos-camisetas-animalistas.png
+      - category-relation: calzado-vegano/index
+        intro: Si no quieres llevar piel en tus zapatos y/o quieres regalar zapatos
+          exentos de crueldad animal... no tienes que preocuparte ya que existen
+          opciones veganas.
+        image: /img/calzado-vegano.png
   - name: Comida y recetas para Veganos
     intro: >-
       El veganismo es mucho más que una alimentación basada en plantas, ya que
