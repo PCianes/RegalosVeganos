@@ -20,14 +20,14 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Thumbnail', name: 'thumbnail', widget: 'image' }
+      - { label: 'Thumbnail', name: 'thumbnail', widget: 'image', required: false }
       - { label: 'Publish Date', name: 'date', widget: 'date' }
       - label: 'Tags'
         name: 'tags'
         widget: 'select'
         multiple: true
-        options: ['vaporwave', 'retrowave', 'future-funk']
-        default: ['vaporwave']
+        options: ['regalos-veganos']
+        default: ['regalos-veganos']
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'product'
