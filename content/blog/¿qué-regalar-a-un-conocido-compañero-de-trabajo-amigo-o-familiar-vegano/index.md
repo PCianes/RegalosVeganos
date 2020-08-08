@@ -3,7 +3,7 @@ title: ¿Qué regalar a un conocido, compañero de trabajo, amigo o familiar Veg
 thumbnail: regalos-veganos-logo.png
 date: 2020-08-08T14:20:24.332Z
 tags:
-  - vaporwave
+  - regalos-veganos
 description: ¡ Estas en el sitio correcto si el motivo es promover el veganismo
   contigo mismo o al menos reconocérselo con un regalo a algún conocido,
   compañero de trabajo, amigo o familiar!
