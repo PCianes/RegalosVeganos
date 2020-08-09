@@ -109,6 +109,7 @@ module.exports = {
         apiKey: 'otdOXgS2-6CAxMTADkx4TesiL524t2EuFhhQY2qLD-E',
       },
     },
+    `gatsby-plugin-catch-links`,
   ],
   mapping: {
     'PagesYaml.fields.html.section.category.relation': `MarkdownRemark.fields.relation`,
