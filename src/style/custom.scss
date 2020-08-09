@@ -1,3 +1,7 @@
+a {
+  color: red;
+}
+
 a,
 a:hover {
   text-decoration-color: red;
@@ -59,4 +63,8 @@ article.home {
       text-decoration: underline;
     }
   }
+}
+
+figcaption {
+  text-align: center;
 }
