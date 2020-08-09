@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import Product from '../components/product'
 import Layout from '../components/layout'
@@ -54,6 +54,11 @@ const CategoryTemplate = ({ data: propsData, location }) => {
             </section>
           )
         })}
+      <div class="all-categories-link">
+        <h4>
+          <Link to={`/`}>Ver todas las categorías</Link>
+        </h4>
+      </div>
     </Layout>
   )
 }

@@ -1,3 +1,8 @@
+a,
+a:hover {
+  text-decoration-color: red;
+}
+
 a h3 {
   color: #131313;
 }
@@ -40,5 +45,18 @@ article.home {
     background-color: black;
     padding-left: 50px;
     padding-right: 50px;
+  }
+}
+
+.all-categories-link {
+  text-align: center;
+  margin: 10rem 0rem;
+
+  a {
+    color: red;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
