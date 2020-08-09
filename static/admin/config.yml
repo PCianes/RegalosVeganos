@@ -20,7 +20,13 @@ collections:
       preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Thumbnail', name: 'thumbnail', widget: 'image', required: false }
+      - { label: 'Custom slug', name: 'customSlug', widget: 'string' }
+      - {
+          label: 'Thumbnail',
+          name: 'thumbnail',
+          widget: 'image',
+          required: false,
+        }
       - { label: 'Publish Date', name: 'date', widget: 'date' }
       - label: 'Tags'
         name: 'tags'

@@ -44,6 +44,7 @@ exports.createPages = ({ graphql, actions }) => {
               frontmatter {
                 title
                 tags
+                customSlug
               }
             }
           }
@@ -82,7 +83,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
 
       createPage({
-        path: post.node.fields.slug,
+        path: post.node.frontmatter.customSlug || post.node.fields.slug,
         component: blogPost,
         context: {
           slug: post.node.fields.slug,
@@ -192,8 +193,5 @@ exports.onCreateNode = async ({
 }
 
 const toHTML = data => {
-  return remark()
-    .use(remarkHTML)
-    .processSync(data)
-    .toString()
+  return remark().use(remarkHTML).processSync(data).toString()
 }
