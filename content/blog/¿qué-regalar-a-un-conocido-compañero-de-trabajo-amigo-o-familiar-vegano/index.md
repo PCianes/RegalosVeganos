@@ -1,7 +1,7 @@
 ---
 title: ¿Qué regalar a un conocido, compañero de trabajo, amigo o familiar Vegano?
 customSlug: que-regalar-a-un-vegano
-thumbnail: regalos-veganos-logo.png
+thumbnail: ""
 date: 2020-08-08T14:20:24.332Z
 tags:
   - regalos-veganos
