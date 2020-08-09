@@ -24,7 +24,7 @@ const CategoryTemplate = ({ data: propsData, location }) => {
             data.products.map(({ product_relation: data }) => {
               return (
                 <Product
-                  imageFixed={data.externalImage.childImageSharp.fixed}
+                  imageFluid={data.externalImage.childImageSharp.fluid}
                   data={data.frontmatter}
                 />
               )
@@ -46,7 +46,7 @@ const CategoryTemplate = ({ data: propsData, location }) => {
                 {products.length > 0 &&
                   products.map(({ product_relation: data }) => (
                     <Product
-                      imageFixed={data.externalImage.childImageSharp.fixed}
+                      imageFluid={data.externalImage.childImageSharp.fluid}
                       data={data.frontmatter}
                     />
                   ))}
@@ -73,8 +73,8 @@ export const pageQuery = graphql`
           product_relation {
             externalImage {
               childImageSharp {
-                fixed(width: 200, height: 200) {
-                  ...GatsbyImageSharpFixed
+                fluid(maxHeight: 250) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
@@ -91,8 +91,8 @@ export const pageQuery = graphql`
             product_relation {
               externalImage {
                 childImageSharp {
-                  fixed(width: 200, height: 200) {
-                    ...GatsbyImageSharpFixed
+                  fluid(maxHeight: 250) {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }

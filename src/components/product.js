@@ -1,11 +1,13 @@
 import React from 'react'
 import Img from 'gatsby-image'
 
-function Product({ imageFixed, data: { title, affiliate_link } }) {
+function Product({ imageFluid, data: { title, affiliate_link } }) {
   return (
-    <div className="col-3" style={{ textAlign: 'center' }}>
+    <div className="col-3 product-card shadow" style={{ textAlign: 'center' }}>
       <a target="_blank" href={affiliate_link} rel="noreferrer">
-        <Img fixed={imageFixed} className="kg-image shadow" />
+        <Img fluid={imageFluid} className="kg-image" />
+      </a>
+      <a target="_blank" href={affiliate_link} rel="noreferrer">
         <blockquote>{title}</blockquote>
       </a>
     </div>

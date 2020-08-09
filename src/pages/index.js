@@ -46,7 +46,7 @@ const Index = ({ data }) => {
                   category.map(({ relation, intro, image }) => {
                     return (
                       <article
-                        className="col post-content home"
+                        className="col post-content home product-card shadow"
                         style={{ textAlign: 'center' }}
                       >
                         <Link class="post-card-link" to={relation.fields.slug}>
@@ -54,8 +54,8 @@ const Index = ({ data }) => {
                         </Link>
                         <Link class="post-card-link" to={relation.fields.slug}>
                           <Img
-                            className="kg-image shadow"
-                            fixed={image.childImageSharp.fixed}
+                            className="kg-image"
+                            fluid={image.childImageSharp.fluid}
                           />
                         </Link>
                         <p
@@ -103,8 +103,8 @@ export const query = graphql`
               intro
               image {
                 childImageSharp {
-                  fixed(width: 200, height: 200) {
-                    ...GatsbyImageSharpFixed
+                  fluid(maxHeight: 350) {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }

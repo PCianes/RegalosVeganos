@@ -1,6 +1,24 @@
+a h3 {
+  color: #131313;
+}
+
 .row {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.product-card {
+  background-color: #ffffff;
+  padding: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+blockquote {
+  border-left: none;
+  color: initial;
+  font-weight: 700;
 }
 
 .shadow {
@@ -9,15 +27,10 @@
   box-shadow: 4px 6px 16px 1px rgba(0, 0, 0, 0.75);
 }
 
-blockquote {
-  border-left: none;
-  color: initial;
-  font-weight: 700;
-  text-decoration: underline;
-}
-
 article.home {
   padding: 0;
+  min-width: 200px;
+  max-width: 400px;
 }
 
 .site-head-center {
