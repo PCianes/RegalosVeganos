@@ -23,6 +23,12 @@ a h3 {
     max-height: 250px;
     margin: 0 auto;
   }
+
+  picture img {
+    margin: 0 auto;
+    right: 0;
+    width: auto !important;
+  }
 }
 
 .product-card {
