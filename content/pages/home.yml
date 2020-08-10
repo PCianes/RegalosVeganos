@@ -24,6 +24,15 @@ section:
           exentos de crueldad animal... no tienes que preocuparte ya que existen
           opciones veganas.
         image: /img/calzado-vegano.png
+      - category-relation: relojes-veganos/index
+        intro: ¿ No encuentras relojes orginales y exentos de cuero? Si defiendes el
+          veganismo o quieres hacer regalos veganos sólo tienes que
+          proponértelo.
+        image: /img/regalos-veganos-relojes.jpg
+      - category-relation: carteras-veganas/index
+        intro: "¿ Buscas regalos orginales y veganos? Sin duda vas en la buena
+          dirección... y recuerda: ¡Querer es poder!"
+        image: /img/cartera-vegana.png
   - name: Comida y recetas para Veganos
     intro: >-
       El veganismo es mucho más que una alimentación basada en plantas, ya que
