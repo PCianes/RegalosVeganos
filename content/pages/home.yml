@@ -48,3 +48,19 @@ section:
         image: /img/regalos-veganos-recetas.jpg
       - category-relation: suplementos-veganos/index
         image: /img/suplemento-b12.png
+  - name: Libros, cosmética y más productos para Veganos
+    intro: >-
+      El veganismo no siempre es fácil de entender para las personas que todavía
+      no lo han comprendido… siendo un proceso que poco a poco cada vez más
+      gente pasará, pero para lo que hacen falta recursos que faciliten esta
+      tarea de concienciación.
+
+
+      Mientras tanto puedes documentarte y ayudar a otros en el proceso con libros veganos, así como trata de usar más y más opciones veganas, tanto en tu higiene personal como en utensilios para el hogar.
+    category:
+      - category-relation: libros-para-veganos/index
+        image: /img/libros-para-veganos.png
+      - category-relation: cosmética-vegana/index
+        image: /img/cosmetica-vegana.png
+      - category-relation: productos-para-veganos/index
+        image: /img/otros-productos-veganos.png
