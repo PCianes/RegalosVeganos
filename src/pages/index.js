@@ -54,7 +54,7 @@ const Index = ({ data }) => {
                         </Link>
                         <Link class="post-card-link" to={relation.fields.slug}>
                           <Img
-                            className="kg-image"
+                            className="kg-image category"
                             fluid={image.childImageSharp.fluid}
                           />
                         </Link>

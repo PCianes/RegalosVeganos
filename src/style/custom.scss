@@ -16,6 +16,15 @@ a h3 {
   margin: 0 auto;
 }
 
+.kg-image {
+  max-height: 200px;
+  &.category {
+    width: 90%;
+    max-height: 250px;
+    margin: 0 auto;
+  }
+}
+
 .product-card {
   background-color: #ffffff;
   padding: 1rem 3rem;
