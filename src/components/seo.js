@@ -8,9 +8,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import { useLocation } from '@reach/router'
 import { useStaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, title, image }) {
+  const { pathname } = useLocation()
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -20,13 +22,17 @@ function SEO({ description, lang, meta, keywords, title }) {
             description
             author
             siteUrl
+            image
           }
         }
       }
     `
   )
-
+  const ogImage = `${site.siteMetadata.siteUrl}${
+    image || site.siteMetadata.image
+  }`
   const metaDescription = description || site.siteMetadata.description
+  const url = `${site.siteMetadata.siteUrl}${pathname}`
 
   return (
     <Helmet
@@ -39,6 +45,18 @@ function SEO({ description, lang, meta, keywords, title }) {
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          property: `image`,
+          content: ogImage,
+        },
+        {
+          property: `og:image`,
+          content: ogImage,
+        },
+        {
+          property: `og:url`,
+          content: url,
         },
         {
           property: `og:title`,
@@ -68,6 +86,10 @@ function SEO({ description, lang, meta, keywords, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:image`,
+          content: ogImage,
+        },
       ]
         .concat(
           keywords.length > 0
@@ -79,13 +101,13 @@ function SEO({ description, lang, meta, keywords, title }) {
         )
         .concat(meta)}
     >
-      <link rel="canonical" href={site.siteMetadata.siteUrl} />
+      <link rel="canonical" href={url} />
     </Helmet>
   )
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `es`,
   meta: [],
   keywords: [],
   description: ``,

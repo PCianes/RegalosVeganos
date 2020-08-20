@@ -6,4 +6,5 @@ module.exports = {
   prefix: '/',
   author: 'Pablo Cianes',
   twitter: '@PabloCianes',
+  image: '/portada.png',
 }

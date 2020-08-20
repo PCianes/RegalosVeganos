@@ -22,6 +22,7 @@ module.exports = {
     social: {
       twitter: siteConfig.twitter,
     },
+    image: siteConfig.image,
   },
   plugins: [
     ...filesystemSetup,
