@@ -38,7 +38,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "remark-html": "^12.0.0",
+    "remark-html": "^13.0.2",
     "typeface-alegreya": "^0.0.69",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
